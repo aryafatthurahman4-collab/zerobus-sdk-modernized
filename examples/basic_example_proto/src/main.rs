@@ -34,7 +34,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
         descriptor_proto: Some(descriptor_proto),
     };
     let stream_configuration_options = StreamConfigurationOptions {
-        max_inflight_records: 100,
+        max_inflight_requests: 100,
         ..Default::default()
     };
     let sdk_handle = ZerobusSdk::new(

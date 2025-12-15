@@ -27,7 +27,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
         descriptor_proto: None,
     };
     let stream_configuration_options = StreamConfigurationOptions {
-        max_inflight_records: 100,
+        max_inflight_requests: 100,
         record_type: RecordType::Json,
         ..Default::default()
     };
