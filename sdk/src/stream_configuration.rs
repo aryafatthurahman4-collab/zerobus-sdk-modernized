@@ -1,4 +1,5 @@
 use crate::databricks::zerobus::RecordType;
+use crate::stream_options::defaults;
 
 /// Configuration options for stream creation, recovery of broken streams and flushing.
 ///
@@ -87,12 +88,12 @@ impl Default for StreamConfigurationOptions {
     fn default() -> Self {
         Self {
             max_inflight_requests: 1_000_000,
-            recovery: true,
-            recovery_timeout_ms: 15_000,
-            recovery_backoff_ms: 2_000,
-            recovery_retries: 4,
-            server_lack_of_ack_timeout_ms: 60_000,
-            flush_timeout_ms: 300_000,
+            recovery: defaults::RECOVERY,
+            recovery_timeout_ms: defaults::RECOVERY_TIMEOUT_MS,
+            recovery_backoff_ms: defaults::RECOVERY_BACKOFF_MS,
+            recovery_retries: defaults::RECOVERY_RETRIES,
+            server_lack_of_ack_timeout_ms: defaults::SERVER_LACK_OF_ACK_TIMEOUT_MS,
+            flush_timeout_ms: defaults::FLUSH_TIMEOUT_MS,
             record_type: RecordType::Proto,
         }
     }
