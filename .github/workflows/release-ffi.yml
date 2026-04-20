@@ -2,9 +2,7 @@ name: Build FFI
 run-name: "Build FFI ${{ github.ref_name }}"
 
 on:
-  push:
-    tags:
-      - "ffi/v*"
+  workflow_dispatch:
 
 jobs:
   build-ffi:
@@ -33,6 +31,9 @@ jobs:
 
     name: Build FFI - ${{ matrix.artifact_dir }}
     runs-on: ${{ matrix.runner }}
+    permissions:
+      contents: read
+      id-token: write
 
     defaults:
       run:
@@ -40,6 +41,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Get JFrog OIDC token
+        shell: bash
+        run: bash "$GITHUB_WORKSPACE/.github/scripts/jfrog-oidc-token.sh"
+
+      - name: Configure cargo for JFrog
+        shell: bash
+        run: bash "$GITHUB_WORKSPACE/.github/scripts/configure-cargo.sh"
 
       - name: Install protoc
         uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b # v3
