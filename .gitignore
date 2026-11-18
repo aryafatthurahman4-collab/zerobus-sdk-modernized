@@ -22,3 +22,24 @@ Thumbs.db
 # Databricks
 .databricks
 .cargo/
+
+# Local secrets (never commit)
+.env
+.env.*
+!.env.example
+
+# Rust build artifacts (huge, never commit)
+target/
+**/target/
+
+node_modules/
+__pycache__/
+*.pyc
+.next/
+dist/
+build/
+vendor/
+.venv/
+venv/
+.terraform/
+*.log
