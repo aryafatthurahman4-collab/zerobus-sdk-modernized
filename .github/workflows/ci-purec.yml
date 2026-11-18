@@ -13,7 +13,7 @@ jobs:
         working-directory: purec
         shell: bash
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
       - name: Install formatting tools
         run: |
           sudo apt-get update
@@ -39,7 +39,7 @@ jobs:
         run: |
           apt-get update
           apt-get install -y --no-install-recommends ca-certificates git unzip cmake make protobuf-c-compiler
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
       - name: Read pinned generator versions
         id: proto-tools
         run: cmake -DPRINT_TOOL_VERSIONS=ON -P proto/generate-proto.cmake >> "$GITHUB_OUTPUT"
@@ -67,7 +67,7 @@ jobs:
         working-directory: purec
         shell: bash
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
       - name: Install build tools
         run: |
           sudo apt-get update
@@ -84,7 +84,7 @@ jobs:
         working-directory: purec
         shell: bash
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
       - name: Install build tools
         run: |
           sudo apt-get update
@@ -104,7 +104,7 @@ jobs:
         working-directory: purec
         shell: bash
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
       - name: Install build tools
         run: |
           sudo apt-get update
